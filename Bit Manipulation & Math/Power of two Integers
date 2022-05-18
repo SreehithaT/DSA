@@ -1,0 +1,15 @@
+Given a positive integer which fits in a 32 bit signed integer, find if it can be expressed as A^P where P > 1 and A > 0. A and P both should be integers.
+class Solution {
+  public static boolean isPower(int A) {
+      /* write your solution here */
+      int p;
+      int n=(int)Math.sqrt(A);
+      for(int i=1;i<=n;i++){
+          p=(int)(Math.log(A)/Math.log(i));
+          if(Math.pow(i,p)==A){
+              return true;
+          }
+      }
+      return false;
+  }
+}
