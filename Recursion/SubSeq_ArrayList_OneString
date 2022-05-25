@@ -1,3 +1,4 @@
+import java.util.*;
 public class Main{
   public static void main(String[] args){
     Scanner sc = new Scanner(System.in);
@@ -21,4 +22,5 @@ public class Main{
     final_res.add(ch+each_str);
   }
   return final_res;
+  }
 }  
