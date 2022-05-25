@@ -1,0 +1,26 @@
+class Solution {
+    
+    public void findCombi(int idx, int candidates[], int target, List<List<Integer>> res,  List<Integer> ds){
+        if(idx==candidates.length){ // whole array is iterated
+            if(target==0){   // combination found
+                res.add(new ArrayList<>(ds));  // creating a new arraylist and copying all elements of ds to it and adding it to "res"
+            }
+            return;   // go to other recursion call
+        }
+        if(candidates[idx]<=target){  // if that particular element is <=target
+            ds.add(candidates[idx]); 
+            findCombi(idx, candidates, target-candidates[idx], res, ds); // Allowing the same element to occur again till its value<=target
+            ds.remove(ds.size()-1);  // To explore "element not considered" condition
+        }
+        findCombi(idx+1, candidates, target, res, ds);  // If that element val is >target then explore next index element
+            
+        
+        
+    }
+    
+    public List<List<Integer>> combinationSum(int[] candidates, int target) {
+        List<List<Integer>> res=new ArrayList<>();
+        findCombi(0, candidates, target, res, new ArrayList<>());  // passing a new array list----> Therefore during findCombi function definition we took this argument as List<Integer>(List<Integer>=new ArrayList<>())
+        return res;
+    }
+}
