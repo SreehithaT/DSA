@@ -1,15 +1,16 @@
 https://leetcode.com/problems/subsets/
 // ITERARTIVE METHOD BY CASCADING METHOD
 
-
+//TC: O(n*2^n)
+//SC: O(n*2^n)   // total 2^n arraylists, max size of an arraylist can be n----> Therefore  O(n*2^n)
 class Solution {
     public List<List<Integer>> subsets(int[] nums) {
         List<List<Integer>> res = new ArrayList<>();
         res.add(new ArrayList()); //empty arraylist
         
-        for(int num : nums){
+        for(int num : nums){   // TC: n
             int n=res.size();
-            for(int i=0;i<n;i++){
+            for(int i=0;i<n;i++){ // TC: 2^n   
                 List<Integer> temp = new ArrayList(res.get(i)); // create a new arraylist and add an element from res arraylist // i.e copy of res arraylist
                 temp.add(num);  // to that copy arraylist add element of nums
                 res.add(temp);  // add back this arraylist to res
