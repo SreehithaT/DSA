@@ -1,0 +1,20 @@
+// ITERARTIVE METHOD BY CASCADING METHOD
+
+
+class Solution {
+    public List<List<Integer>> subsets(int[] nums) {
+        List<List<Integer>> res = new ArrayList<>();
+        res.add(new ArrayList<Integer>()); //empty arraylist
+        
+        for(Integer num : nums){
+            int n=res.size();
+            for(int i=0;i<n;i++){
+                List<Integer> temp = new ArrayList<>(res.get(i)); // create a new arraylist and add an element from res arraylist // i.e copy of res arraylist
+                temp.add(num);  // to that copy arraylist add element of nums
+                res.add(temp);  // add back this arraylist to res
+            }
+        }
+        return res;  
+        
+    }
+}
