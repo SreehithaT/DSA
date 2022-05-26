@@ -1,4 +1,66 @@
 https://www.codingninjas.com/codestudio/problems/raksha-bandhan_2179752?leftPanelTab=0
+
+Problem Statement
+Ninja is celebrating Raksha Bandhan with his ‘N’ sisters. Each of his sisters plans to tie him one Rakhi, having some integer value. The integer value for all ‘N’ Rakhis is provided in an array ‘ARR’.
+Ninja wants the total sum of values of all tied Rakhis to be strictly positive.
+Your task is to tell him the maximum Rakhis he can have on his hand.
+Example :
+N = 3
+ARR = [ 1, -1, 0 ]
+
+Ninja can have Rakhi with values 1 and 0 tied to his hand so that total sum is 1.
+So, we output 2 as the maximum Rakhis.
+Input Format :
+The first line contains an integer 'T' which denotes the number of test cases to be run. Then the test cases follow.
+
+The first line of each test case contains integer ‘N’.
+
+The second line contains ‘N’ space separated integers denoting the elements of array ‘ARR’.
+Output Format :
+For each test case, print an integer denoting the maximum Rakhis Ninja can get tied.
+
+Print the output of each test case in a new line.
+Note :
+You don’t need to print anything. It has already been taken care of. Just implement the given function.
+Constraints :
+1 <= T <= 10
+1 <= N <= 10^4
+-10^9 <= ARR[i] <= 10^9
+
+Time Limit : 1 sec
+Sample Input 1 :
+2
+2
+3 -3
+3
+1 -2 2
+Sample Output 1 :
+1
+3
+Explanation Of Sample Input 1 :
+For test case 1 we have, 
+If we try to get both Rakhis tied, we get sum = 0. So, we only can use Rakhi with the value of 3 to get a positive sum. Hence, we output 1.
+
+For test case 2 we have,
+If we try to get all 3 Rakhis tied, the total sum is 1. Hence, we output 3.
+Sample Input 2 :
+3
+3
+1 -5 4
+2
+5 7    
+3
+-1 0 -2
+Sample Output 2 :
+2
+2
+0
+
+
+
+
+
+
 import java.util.*;
 import java.util.Arrays;
 import java.util.Collections;
