@@ -1,0 +1,51 @@
+https://www.geeksforgeeks.org/minimum-number-of-operations-to-convert-array-a-to-array-b-by-adding-an-integer-into-a-subarray/
+
+Given two arrays A[] and B[] of length N, the task is to find the minimum number of operations in which the array A can be converted into array B 
+where each operation consists of adding an integer K into a subarray from L to R.
+
+import java.util.*;
+public class Main{
+    public static void main(String[] args){
+        Scanner sc=new Scanner(System.in);
+        int n=sc.nextInt();
+        int A[]=new int[n];
+        int B[]=new int[n];
+        for(int i=0;i<n;i++){
+            A[i]=sc.nextInt();
+        }
+        for(int i=0;i<n;i++){
+            B[i]=sc.nextInt();
+        }
+        int diff=0;
+        for(int i=0;i<n;i++){
+            if(B[i]-A[i]!=0){
+                diff=B[i]-A[i];
+                break;
+            }
+        }
+        if(diff==0){
+            System.out.println(0);
+            return;
+        }
+        
+        int op=0;
+        for(int i=0;i<n;i++){
+            if(B[i]-A[i]!=0){
+                if(B[i]-A[i]==diff){
+                    op++;
+                }
+                else{
+                    
+                    while(B[i]-A[i]!=diff){
+                        B[i]=B[i]-diff;
+                        op++;
+                    }
+                    //op++;
+                }
+                
+            }
+            
+        }
+        System.out.println(op);
+    } 
+}
