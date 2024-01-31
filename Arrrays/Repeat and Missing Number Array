@@ -1,0 +1,55 @@
+Repeat and Missing Number Array Interviewbit
+https://www.interviewbit.com/problems/repeat-and-missing-number-array/
+
+Approach 1 - Brute force:
+TC: O(N^2)
+SC: O(1)
+int res[]=new int[2];
+for(int i=0; i<n; i++){
+  int num=A[i];
+  int count=0;
+  for(int i=0; i<n; i++){
+    if(A[i]==num){
+      count++;
+      if(count==2){
+        res[0]=num;// repeated number
+      }
+    }
+  }
+  if(count==0){
+    res[1]=num;
+  }
+}
+return res;
+
+Approach 2 - Using extra array
+TC: O(2*N)
+SC: O(N);
+int hash[] = new int[n+1];
+Arrays.fill(hash, 0);
+for(int i=0; i<n; i++){
+  hash[A[i]]+=1;
+}
+for(int i=1; i<=n; i++){
+  if(hash[i]==2)
+    res[0]=i;
+  if(hash[i]==0)
+    res[1]=i;
+}
+return res;
+
+Approach 3 - Math formulae
+TC: O()
+SC: O()
+long sn = (n*(n+1))/2;
+int actualSum = 0;
+for(int i=0;i<n;i++){
+  actualSum+= A[i];
+}
+long sumOfSquaresofN = (n*(n+1)*(2n+1))/6;
+// ActualSum - Sum(1+2+...N) = repeat -  missing
+// ActualSquaresSum - Sum(1^2+2^2....N^2) = repeat^2 - missing^2
+// repeat^2-missing^2 = (repeat+missing)(repeat-missing);
+// repeat^2-missing^2 = (repeat+missing)(ActualSum - Sum(1+2+...N))
+                         
+                                         
